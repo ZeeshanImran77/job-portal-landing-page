@@ -17,7 +17,7 @@ const Header = () => {
               alt="logo"
               className="h-10 w-10 object-contain mr-2"
             />
-            <h2 className="text-3xl text-[--color-brand-blue] font-bold">
+            <h2 className="text-xl md:text-3xl text-brand-blue font-bold">
               Find Jobs
             </h2>
           </div>
@@ -32,11 +32,14 @@ const Header = () => {
 
           {/* Mobile Toggle Button (Hidden on Desktop > 768px) */}
           <div className="md:hidden flex gap-4">
-            <Button
-              children="Sign Up Now"
-              variant="primary"
-              className="md:hidden"
-            />
+            <Link to="/signup">
+              <Button
+                children="Sign Up Now"
+                variant="primary"
+                className="!py-1 !px-3.5 md:hidden"
+              />
+            </Link>
+
             <button
               className="md:hidden text-[--color-brand-dark]"
               onClick={() => setIsOpen(!isOpen)}

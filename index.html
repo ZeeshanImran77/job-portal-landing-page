@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,6 +7,12 @@
     <title>landing-pg</title>
   </head>
   <body>
+    <script>
+      // Auto-redirect to #/ if hash is missing
+      if (!window.location.hash) {
+        window.location.replace(window.location.href + "#/");
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

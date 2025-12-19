@@ -1,5 +1,6 @@
 import React from "react";
 import { User, Briefcase, Building, Megaphone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   const features = [
@@ -29,8 +30,15 @@ const WhyChooseUs = () => {
   return (
     <section className="py-section">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-semibold mb-10">Why Choose Us</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.h2
+          className="text-3xl font-semibold mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Why Choose Us
+        </motion.h2>
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
@@ -43,7 +51,38 @@ const WhyChooseUs = () => {
               <p className="text-gray-600 text-sm">{feature.description}</p>
             </div>
           ))}
-        </div>
+        </div> */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.2, // Cards appear one by one
+              },
+            },
+          }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow hover:shadow-lg cursor-pointer"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.05 }} // Lift on hover
+              transition={{ duration: 0.4 }}
+            >
+              <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4 mx-auto">
+                {feature.icon}
+              </div>
+              <h3 className="text-lg font-medium mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

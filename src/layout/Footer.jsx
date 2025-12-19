@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <>
       <footer className="border-t border-slate-300 bg-surface-gray">
-        <ul className="mx-auto max-w-7xl px-6 py-8  flex gap-7 justify-center md:justify-start">
+        <ul className="mx-auto max-w-7xl px-6 py-8  flex gap-5 flex-wrap md:gap-7 justify-center md:justify-start">
           {navLinks.map((link) => (
             <li key={link.name} className="list-none">
               <NavLink

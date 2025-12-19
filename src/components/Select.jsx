@@ -16,7 +16,7 @@ const Select = ({
         className={`
           w-full appearance-none rounded-lg bg-white
           px-4 py-3 pr-5
-          text-lg font-medium text-brand-dark
+          text-lg font-medium text-gray-500
           focus:outline-none focus:ring-2 focus:ring-blue-500
           ${className}
         `}
