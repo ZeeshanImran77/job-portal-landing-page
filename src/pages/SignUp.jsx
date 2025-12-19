@@ -1,11 +1,11 @@
 import React from "react";
 
-const Companies = () => {
+const SignUp = () => {
   return (
     <>
       <section className="w-full min-h-96 bg-gradient-to-br from-sky-100 to-blue-200 py-16 px-4 flex items-center justify-center">
         <div className="mx-auto max-w-5xl ">
-          <h1>Companies</h1>
+          <h1>Sign Up</h1>
         </div>
       </section>
 
@@ -95,4 +95,4 @@ const Companies = () => {
   );
 };
 
-export default Companies;
+export default SignUp;

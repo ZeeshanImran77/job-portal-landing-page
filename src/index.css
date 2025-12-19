@@ -26,6 +26,16 @@
     line-height: 1.2;
     font-size: 2rem;
   }
+  h4 {
+    font-family: var(--font-custom);
+    color: var(--color-brand-dark);
+    font-weight: 400;
+    line-height: 1;
+    font-size: 1.4rem;
+  }
+  p {
+    margin-bottom: 20px;
+  }
 
   @media (min-width: 1024px) {
     h1 {

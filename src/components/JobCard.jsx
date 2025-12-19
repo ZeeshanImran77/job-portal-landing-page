@@ -13,11 +13,11 @@ const JobCard = ({ job }) => {
       )}
       <h4 className="font-medium  capitalize mb-0">{job.title}</h4>
       <p className="text-sm text-gray-500">{job.company}</p>
-      <p className="flex items-center gap-1 text-md text-gray-400">
+      <p className="flex items-center gap-1 text-md text-gray-400 m-0">
         <MapPin size={18} />
         {job.location}
       </p>
-      <p className="text-sm text-gray-400 mt-1">
+      <p className="text-sm text-gray-400 m-0 mt-1">
         <Timer className="inline" size={18} />
         {job.posted} |{" "}
         <span className="text-brand-blue">{job.applicants} applicants</span>

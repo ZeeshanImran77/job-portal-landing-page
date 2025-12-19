@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,9 @@ const Header = () => {
           {/* Desktop Navigation (Hidden on Mobile < 768px) */}
           <div className="hidden md:flex gap-6 items-center">
             <Navbar />
-            <Button children="Sign Up Now" variant="primary" />
+            <Link to="/signup">
+              <Button children="Sign Up Now" variant="primary" />
+            </Link>
           </div>
 
           {/* Mobile Toggle Button (Hidden on Desktop > 768px) */}

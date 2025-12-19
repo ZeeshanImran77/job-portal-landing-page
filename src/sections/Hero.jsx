@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
@@ -12,7 +12,10 @@ const Hero = () => {
     { label: "Islamabad", value: "islamabad" },
     { label: "United states", value: "USA" },
   ];
-  const [filteredJobs, setFilteredJobs] = useState(allJobs);
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  useEffect(() => {
+    setFilteredJobs(allJobs);
+  }, []);
 
   const handleSearch = (query, location) => {
     const lowerQuery = query.toLowerCase();
