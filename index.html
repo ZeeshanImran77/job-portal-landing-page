@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,6 +9,12 @@
     <link rel="stylesheet" crossorigin href="/job-portal-landing-page/assets/index-BTe_IZb1.css">
   </head>
   <body>
+    <script>
+      // Auto-redirect to #/ if hash is missing
+      if (!window.location.hash) {
+        window.location.replace(window.location.href + "#/");
+      }
+    </script>
     <div id="root"></div>
   </body>
 </html>
