@@ -1,0 +1,30 @@
+import { useState } from "react";
+import "./index.css";
+import Button from "./components/Button";
+import Header from "./layout/Header";
+import Hero from "./sections/Hero";
+import Footer from "./layout/Footer";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Jobs from "./pages/Jobs";
+import Companies from "./pages/Companies";
+import About from "./pages/About";
+import SignIn from "./pages/SignIn";
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/jobs" element={<Jobs />}></Route>
+        <Route path="/companies" element={<Companies />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/signIn" element={<SignIn />}></Route>
+      </Routes>
+      <Footer />
+    </>
+  );
+}
+
+export default App;
