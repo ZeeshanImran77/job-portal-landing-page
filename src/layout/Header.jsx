@@ -4,9 +4,18 @@ import { Menu, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Dropdown animation variants
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
+
   return (
     <header className="bg-surface-gray sticky top-0 z-50 shadow-md ">
       <div className="mx-auto max-w-7xl px-6 py-4">
@@ -41,7 +50,7 @@ const Header = () => {
             </Link>
 
             <button
-              className="md:hidden text-[--color-brand-dark]"
+              className="md:hidden text-brand-dark"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -49,12 +58,22 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
-        {isOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl p-8 flex flex-col gap-8 transition-all duration-300">
-            <Navbar isMobile closeMenu={() => setIsOpen(false)} />
-          </div>
-        )}
+        {/* Mobile Dropdown Menu with animation */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              key="mobile-menu"
+              className="md:hidden fixed top-16 left-0 w-full bg-surface-gray shadow-xl p-8 flex flex-col gap-8 z-50"
+              variants={dropdownVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+            >
+              <Navbar isMobile closeMenu={() => setIsOpen(false)} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

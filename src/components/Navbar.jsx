@@ -18,7 +18,10 @@ const Navbar = ({ isMobile, closeMenu }) => {
         }`}
       >
         {navLinks.map((link) => (
-          <li key={link.name} className="list-none">
+          <li
+            key={link.name}
+            className={`list-none ${isMobile ? "w-full" : ""}`}
+          >
             <NavLink
               to={link.path}
               onClick={closeMenu}
@@ -29,6 +32,7 @@ const Navbar = ({ isMobile, closeMenu }) => {
                   ? "text-brand-blue"
                   : "text-brand-dark hover:text-brand-blue"
               }
+              ${isMobile ? "block" : ""}
             `}
             >
               {link.name}
